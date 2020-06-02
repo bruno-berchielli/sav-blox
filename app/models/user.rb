@@ -5,4 +5,5 @@ class User < ApplicationRecord
   validates :cpf, presence: true, uniqueness: true
   validates_inclusion_of :role, :in => ['admin', 'student', 'professor'], :allow_nil => false
   validates :password, presence: true, length: {minimum:6, maximum:16}
+  has_secure_password
 end
