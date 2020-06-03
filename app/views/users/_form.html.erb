@@ -1,3 +1,6 @@
+
+  
+     
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -11,47 +14,48 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+ <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="first_name">Primeiro Nome</label>
+          <%= form.text_field :first_name, class:"validade", id: "first_name", type: "text" %> 
+        </div>
+        <div class="input-field col s6">
+          <%= form.text_field :last_name, class:"validate", id: "last_name", type: "text" %>
+          <label for="last_name">Sobrenome</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="CPF">CPF</label>
+          <%= form.text_field :cpf, class:"validate" %>
+        </div>  
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="cellphone">Celular</label>
+          <%= form.text_field :cellphone, class:"validate", id: "cellphone" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= form.text_field :email, class:"validate", type: "email", id: "email" %>
+          <label for="email">Email</label>
+        </div>
+      </div>  
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="password">Senha</label>
+          <%= form.text_field :password, class:"form-control", type: "password", class: "validate", id: "password" %>
+        </div>
+      </div>
+      </div>
+      <%= form.text_field :role, value: "admin", type:"hidden" %>
+      <%= form.submit "Criar Conta" , class:"btn btn-primary" %>
+    </form>
+    <% end %>
+    <br><br>
   </div>
-
-  <div class="field">
-    <%= form.label :cellphone %>
-    <%= form.text_field :cellphone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :role %>
-    <%= form.text_field :role %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cpf %>
-    <%= form.text_field :cpf %>
-  </div>
-
-  <div class="field">
-    <%= form.label :institution_id %>
-    <%= form.number_field :institution_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
