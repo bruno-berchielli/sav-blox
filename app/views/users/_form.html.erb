@@ -1,0 +1,61 @@
+
+  
+     
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+ <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="first_name">Primeiro Nome</label>
+          <%= form.text_field :first_name, class:"validade", id: "first_name", type: "text" %> 
+        </div>
+        <div class="input-field col s6">
+          <%= form.text_field :last_name, class:"validate", id: "last_name", type: "text" %>
+          <label for="last_name">Sobrenome</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="CPF">CPF</label>
+          <%= form.text_field :cpf, class:"validate" %>
+        </div>  
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="cellphone">Celular</label>
+          <%= form.text_field :cellphone, class:"validate", id: "cellphone" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= form.text_field :email, class:"validate", type: "email", id: "email" %>
+          <label for="email">Email</label>
+        </div>
+      </div>  
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="password">Senha</label>
+          <%= form.text_field :password, class:"form-control", type: "password", class: "validate", id: "password" %>
+        </div>
+      </div>
+      </div>
+      <%= form.text_field :role, value: "admin", type:"hidden" %>
+      <%= form.submit "Criar Conta" , class:"btn btn-primary" %>
+    </form>
+    <% end %>
+    <br><br>
+  </div>
