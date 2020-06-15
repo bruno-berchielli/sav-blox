@@ -1,5 +1,5 @@
 <%= form_with(model: user, local: true) do |form| %>
-<%= render 'shared/errors' %>
+<%= render 'shared/errors', obj: @user %>
 
  <div class="row">
     <form class="col s12">

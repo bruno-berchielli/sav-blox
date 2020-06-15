@@ -1,4 +1,5 @@
 <%= form_with(model: classroom, local: true) do |form| %>
+<%= render 'shared/errors', obj: @classroom %>
 
   <div class="field">
     <%= form.label :title %>
