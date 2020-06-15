@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :classrooms
-  resources :users
+  resources :users, except: [:new]
   root to: 'main#index'
   get 'signup', to: 'users#new'
   
