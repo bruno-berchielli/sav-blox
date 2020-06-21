@@ -1,5 +1,5 @@
 <%= form_with(model: user, local: true) do |form| %>
-<%= render 'shared/errors' %>
+<%= render 'shared/errors', obj: @user %>
 
  <div class="row">
     <form class="col s12">
@@ -39,7 +39,7 @@
       </div>
       </div>
       <%= form.text_field :role, value: "admin", type:"hidden" %>
-      <%= form.submit "Enviar" , class:"btn btn-primary" %>
+      <%= form.submit(@user.new_record? ? "Criar Conta" : "Atualizar Conta", class:"btn btn-primary") %>
     </form>
     <% end %>
     <br><br>
